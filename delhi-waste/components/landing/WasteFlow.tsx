@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import type { FlowStep } from '@/data/types';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { useT } from '@/data/translations';
 
 interface WasteFlowProps {
   steps: readonly FlowStep[];
@@ -11,8 +9,6 @@ interface WasteFlowProps {
 
 export default function WasteFlow({ steps }: WasteFlowProps) {
   const [activeId, setActiveId] = useState<string | null>(null);
-  const { lang } = useLanguage();
-  const t = useT(lang);
 
   const toggle = (id: string) => setActiveId(prev => (prev === id ? null : id));
 
@@ -20,10 +16,10 @@ export default function WasteFlow({ steps }: WasteFlowProps) {
     <section className="py-24 px-4 sm:px-6 bg-raised">
       <div className="max-w-6xl mx-auto">
         <h2 className="font-heading font-bold text-3xl sm:text-4xl text-primary mb-3">
-          {t.wasteFlow.heading}
+          How Delhi&apos;s waste actually flows
         </h2>
         <p className="text-secondary mb-12 max-w-2xl">
-          {t.wasteFlow.sub}
+          Six steps. Each one with a plan. Each one with a reality. Tap a step to see the gap.
         </p>
 
         <div className="flex flex-col gap-2">
@@ -81,7 +77,7 @@ export default function WasteFlow({ steps }: WasteFlowProps) {
                   >
                     <div>
                       <p className="text-xs font-medium text-accent uppercase tracking-wider mb-2">
-                        {t.wasteFlow.intended}
+                        Intended
                       </p>
                       <p className="text-secondary text-sm leading-relaxed">
                         {step.intended}
@@ -89,7 +85,7 @@ export default function WasteFlow({ steps }: WasteFlowProps) {
                     </div>
                     <div>
                       <p className="text-xs font-medium text-secondary uppercase tracking-wider mb-2">
-                        {t.wasteFlow.reality}
+                        Reality
                       </p>
                       <p className="text-secondary text-sm leading-relaxed">
                         {step.reality}
@@ -97,7 +93,7 @@ export default function WasteFlow({ steps }: WasteFlowProps) {
                     </div>
                     <div className="sm:border-l sm:border-subtle sm:pl-5">
                       <p className="text-xs font-medium text-danger uppercase tracking-wider mb-2">
-                        {t.wasteFlow.gap}
+                        The Gap
                       </p>
                       <p className="text-primary text-sm font-medium leading-relaxed">
                         {step.gap}

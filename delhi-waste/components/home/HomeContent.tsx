@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import WasteFlow from '@/components/landing/WasteFlow';
+import FactorsSection from '@/components/home/FactorsSection';
 import StatCard from '@/components/StatCard';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useT } from '@/data/translations';
@@ -70,8 +70,8 @@ export default function HomeContent() {
         </div>
       </div>
 
-      {/* ── Waste Flow ── */}
-      <WasteFlow steps={t.flowSteps} />
+      {/* ── Factors ── */}
+      <FactorsSection />
 
       {/* ── Human Cost ── */}
       <section className="py-24 px-4 sm:px-6 bg-base">

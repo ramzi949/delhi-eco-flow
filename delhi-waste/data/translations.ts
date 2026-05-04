@@ -11,12 +11,23 @@ const T = {
       label: 'Delhi has dumped today',
       sub: 'approximate kg of waste into its landfills',
     },
-    wasteFlow: {
-      heading: "How Delhi's waste actually flows",
-      sub: 'Six steps. Each one with a plan. Each one with a reality. Tap a step to see the gap.',
-      intended: 'Intended',
-      reality: 'Reality',
-      gap: 'The Gap',
+    factors: {
+      heading: "Many factors make Delhi's waste problem harder to solve",
+      items: [
+        {
+          label: 'Geographical',
+          body: "Delhi is surrounded by mountains, and during winter, low temperatures trap pollutants close to the ground, making any burning of waste even worse.",
+        },
+        {
+          label: 'Economic',
+          body: "Delhi's population is growing at 2.63% per year, meaning trash is rising. More people means more waste, faster than the city can build systems to handle it.",
+          source: 'arXiv, 2025',
+        },
+        {
+          label: 'Political',
+          body: "Waste management in Delhi is split among the Delhi corporations, the Delhi government, and the central government, which can lead to confusion and gaps in accountability.",
+        },
+      ],
     },
     home: {
       factStrip: [
@@ -196,12 +207,23 @@ const T = {
       label: 'दिल्ली ने आज फेंका',
       sub: 'अनुमानित किलोग्राम कचरा लैंडफिल में',
     },
-    wasteFlow: {
-      heading: 'दिल्ली का कचरा वास्तव में कैसे बहता है',
-      sub: 'छह चरण। हर एक की एक योजना है। हर एक की एक हकीकत है। अंतर देखने के लिए टैप करें।',
-      intended: 'योजना',
-      reality: 'हकीकत',
-      gap: 'अंतर',
+    factors: {
+      heading: 'दिल्ली की कचरा समस्या को हल करना कई कारणों से मुश्किल है',
+      items: [
+        {
+          label: 'भौगोलिक',
+          body: 'दिल्ली पहाड़ों से घिरी है, और सर्दियों में, कम तापमान प्रदूषकों को ज़मीन के पास फंसा देता है, जिससे कचरा जलाना और भी खतरनाक हो जाता है।',
+        },
+        {
+          label: 'आर्थिक',
+          body: 'दिल्ली की जनसंख्या हर साल 2.63% की दर से बढ़ रही है, यानी कचरा भी बढ़ रहा है। ज़्यादा लोग मतलब ज़्यादा कचरा, शहर की व्यवस्था से तेज़।',
+          source: 'arXiv, 2025',
+        },
+        {
+          label: 'राजनीतिक',
+          body: 'दिल्ली में कचरा प्रबंधन दिल्ली निगम, दिल्ली सरकार और केंद्र सरकार के बीच बंटा है, जिससे भ्रम और जवाबदेही में कमी हो सकती है।',
+        },
+      ],
     },
     home: {
       factStrip: [

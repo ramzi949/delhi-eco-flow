@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base: #0d0d12;
+  --color-raised: #191920;
+  --color-subtle: #2c2c38;
+  --color-primary: #f5f5f5;
+  --color-secondary: #a8a8b8;
+  --color-accent: #c4e538;
+  --color-danger: #dc2626;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0d0d12;
+  color: #f5f5f5;
+}
+
+/* Counter crossfade */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeSlideIn {
+  animation: fadeSlideIn 0.4s ease-out forwards;
+}
+
+/* Scroll indicator bob */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.animate-bob {
+  animation: bob 2s ease-in-out infinite;
+}
+
+/* Hero grain — slow-breathing noise texture */
+@keyframes grain-breathe {
+  0%, 100% { opacity: 0.035; }
+  50% { opacity: 0.055; }
+}
+
+.animate-grain {
+  animation: grain-breathe 5s ease-in-out infinite;
+}
+
+/* Site-wide fixed grain overlay */
+@keyframes grain-shift {
+  0%   { transform: translate(0,    0);    }
+  20%  { transform: translate(-3%,  -6%);  }
+  40%  { transform: translate(5%,   3%);   }
+  60%  { transform: translate(-4%,  8%);   }
+  80%  { transform: translate(6%,   -2%);  }
+  100% { transform: translate(0,    0);    }
+}
+
+.global-grain::before {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  background-repeat: repeat;
+  opacity: 0.018;
+  animation: grain-shift 12s steps(6) infinite;
+  pointer-events: none;
+}
+
+/* Mountain annotation fade-in (staggered via animation-delay inline) */
+@keyframes annotFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+.annot-fade {
+  opacity: 0;
+  animation: annotFadeIn 500ms ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,81 @@
+import type { Source } from './types';
+
+export const sources: Source[] = [
+  {
+    id: 'earth5r-2024',
+    title: 'Pollution Free Delhi By 2025: Could Circular Economy Be The Answer?',
+    publisher: 'Earth5R',
+    year: 2024,
+    url: 'https://earth5r.org/delhi-pollution-circular-economy/',
+  },
+  {
+    id: 'dte-trash-mountain',
+    title: 'Living next to Delhi\'s trash mountain',
+    publisher: 'Down To Earth',
+    year: 2023,
+    url: 'https://www.downtoearth.org.in/waste/living-next-to-delhi-s-trash-mountain-policies-should-focus-on-easing-the-struggles-of-waste-pickers-91080',
+  },
+  {
+    id: 'dte-privatisation',
+    title: 'Privatisation in solid waste management is impacting informal collectors\' lives and livelihood',
+    publisher: 'Down To Earth',
+    year: 2025,
+    url: 'https://www.downtoearth.org.in/waste/privatisation-in-solid-waste-management-is-impacting-informal-collectors-lives-and-livelihood',
+  },
+  {
+    id: 'harvard-waste-pickers',
+    title: 'Waste Pickers of India: 1800 Histories',
+    publisher: 'Harvard University',
+    year: 2024,
+    url: 'https://histecon.fas.harvard.edu/1800_histories/sites/delhi.html',
+  },
+  {
+    id: 'eco-business-2024',
+    title: 'Under Delhi\'s mountains of waste lie buried a grim social reality',
+    publisher: 'Eco-Business',
+    year: 2024,
+    url: 'https://www.eco-business.com/opinion/under-delhis-mountains-of-waste-lie-buried-a-grim-social-reality/',
+  },
+  {
+    id: 'hite-2026',
+    title: 'Ghazipur Landfill: Inside Delhi\'s Toxic Garbage Mountain',
+    publisher: 'Ryan J. Hite',
+    year: 2026,
+    url: 'https://www.ryanjhite.com/2026/03/17/the-mountain-of-garbage-that-swallowed-part-of-delhi/',
+  },
+  {
+    id: 'springer-2025',
+    title: 'Assessing AQI of air pollution crisis 2024 in Delhi',
+    publisher: 'Springer',
+    year: 2025,
+    url: 'https://link.springer.com/article/10.1007/s44292-025-00041-x',
+  },
+  {
+    id: 'arxiv-2025',
+    title: 'Decadal Analysis of Delhi\'s Air Pollution Crisis',
+    publisher: 'arXiv',
+    year: 2025,
+    url: 'https://arxiv.org/html/2506.24087v1',
+  },
+  {
+    id: 'wikipedia-delhi-air',
+    title: 'Air pollution in Delhi',
+    publisher: 'Wikipedia',
+    year: 2026,
+    url: 'https://en.wikipedia.org/wiki/Air_pollution_in_Delhi',
+  },
+  {
+    id: 'ceew-2019',
+    title: 'What is Polluting Delhi\'s Air?',
+    publisher: 'Council on Energy, Environment and Water (CEEW)',
+    year: 2019,
+    url: 'https://www.ceew.in/publications/delhi-air-pollution-sources-and-cause',
+  },
+  {
+    id: 'dpcc-2026',
+    title: 'Delhi Pollution Control Committee, Official Site',
+    publisher: 'Delhi Pollution Control Committee',
+    year: 2026,
+    url: 'https://www.dpcc.delhigovt.nic.in/',
+  },
+];

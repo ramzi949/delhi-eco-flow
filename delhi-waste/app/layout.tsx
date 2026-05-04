@@ -26,12 +26,18 @@ export const metadata: Metadata = {
   },
   description:
     "Delhi Eco-Flow is a student-led campaign documenting Delhi's 40-year waste crisis and designing an ethical path forward, for the city and for its waste pickers.",
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+    shortcut: '/logo.png',
+  },
   openGraph: {
     title: 'Delhi Eco-Flow',
     description:
       "A student-led campaign tackling Delhi's waste crisis through school outreach, community design, and ethical waste-to-energy.",
     type: 'website',
     siteName: 'Delhi Eco-Flow',
+    images: [{ url: '/logo.png' }],
   },
 };
 

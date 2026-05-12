@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-type Key = 'biogas' | 'recycling' | 'hazardous' | 'wte' | 'filters' | 'workers' | 'electricity';
+type Key = 'biogas' | 'recycling' | 'hazardous' | 'wte' | 'particulate' | 'scrubber' | 'carboncapture' | 'workers' | 'electricity';
 
 const TIPS: Record<Key, { title: string; body: string }> = {
   biogas: {
@@ -21,9 +21,17 @@ const TIPS: Record<Key, { title: string; body: string }> = {
     title: 'WTE Incinerator',
     body: 'Only true residual waste that cannot be recycled or composted is burned here. Most waste is diverted before reaching this point.',
   },
-  filters: {
-    title: 'Filtration Tower',
-    body: 'Three layers trap particulates, acid gases, and CO2 before anything exits into the air.',
+  particulate: {
+    title: 'Layer 1: Particulate Filter',
+    body: 'Hot gas from the incinerator is forced through fabric bag filters or an electrostatic precipitator (ESP). The ESP gives particles an electric charge and then pulls them onto oppositely charged metal plates. This traps fly ash, soot, and fine dust — the same PM2.5 particles that cause lung damage. The collected ash is then safely contained, not released.',
+  },
+  scrubber: {
+    title: 'Layer 2: Acid Gas Scrubber',
+    body: 'Burning plastics and organic waste releases acid gases: hydrogen chloride (HCl), sulfur dioxide (SO₂), and hydrogen fluoride (HF). In the scrubber, a fine mist of lime solution (calcium hydroxide) is sprayed into the gas stream. The lime reacts chemically with each acid, neutralising it into harmless calcium salts that fall out as powder and are collected. Without this layer, these gases would cause acid rain and serious respiratory harm.',
+  },
+  carboncapture: {
+    title: 'Layer 3: Carbon Capture Unit',
+    body: 'The gas passing through this final layer is exposed to a chemical solvent — usually an amine solution — that binds CO₂ molecules and pulls them out of the exhaust. The captured CO₂ is then either stored underground (geological storage) or reused in industrial processes such as making concrete or fertiliser. This layer is what makes the system genuinely low-emission rather than just less bad.',
   },
   workers: {
     title: 'Formally Employed',
@@ -199,20 +207,27 @@ export default function WteDiagram() {
           <rect x="550" y="142" width="24" height="40" rx="2"
             fill="rgba(75,85,99,0.35)" stroke="#4b5563" strokeWidth="1" />
 
-          {/* FILTER TOWER */}
-          <g style={{ cursor: 'pointer' }} onMouseEnter={on('filters')} onMouseLeave={off}>
+          {/* FILTER TOWER — each layer has its own tooltip */}
+          <g style={{ cursor: 'pointer' }} onMouseEnter={on('particulate')} onMouseLeave={off}>
             <rect x="508" y="106" width="108" height="28" rx="5"
-              fill="rgba(156,163,175,0.10)" stroke="#9ca3af" strokeWidth="1.5" />
+              fill={active === 'particulate' ? 'rgba(156,163,175,0.22)' : 'rgba(156,163,175,0.10)'}
+              stroke="#9ca3af" strokeWidth="1.5" />
             <text x="562" y="125" textAnchor="middle" fill="#9ca3af"
               fontSize="8.5" fontFamily="monospace" letterSpacing="0.4">PARTICULATE FILTER</text>
+          </g>
 
+          <g style={{ cursor: 'pointer' }} onMouseEnter={on('scrubber')} onMouseLeave={off}>
             <rect x="508" y="70" width="108" height="28" rx="5"
-              fill="rgba(147,197,253,0.10)" stroke="#93c5fd" strokeWidth="1.5" />
+              fill={active === 'scrubber' ? 'rgba(147,197,253,0.22)' : 'rgba(147,197,253,0.10)'}
+              stroke="#93c5fd" strokeWidth="1.5" />
             <text x="562" y="89" textAnchor="middle" fill="#93c5fd"
               fontSize="9" fontFamily="monospace" letterSpacing="0.4">SCRUBBER</text>
+          </g>
 
+          <g style={{ cursor: 'pointer' }} onMouseEnter={on('carboncapture')} onMouseLeave={off}>
             <rect x="508" y="34" width="108" height="28" rx="5"
-              fill="rgba(196,229,56,0.10)" stroke="#c4e538" strokeWidth="1.5" />
+              fill={active === 'carboncapture' ? 'rgba(196,229,56,0.22)' : 'rgba(196,229,56,0.10)'}
+              stroke="#c4e538" strokeWidth="1.5" />
             <text x="562" y="53" textAnchor="middle" fill="#c4e538"
               fontSize="8.5" fontFamily="monospace" letterSpacing="0.4">CARBON CAPTURE</text>
           </g>

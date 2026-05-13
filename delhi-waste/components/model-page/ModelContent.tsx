@@ -1,9 +1,19 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import WteDiagram from '@/components/model/WteDiagram';
 import BinDiagram from '@/components/model/BinDiagram';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useT } from '@/data/translations';
+
+const WTEPipelineViewer = dynamic(
+  () => import('@/components/model/WTEPipelineViewer'),
+  { ssr: false, loading: () => (
+    <div className="w-full h-[600px] bg-raised border border-subtle rounded-lg flex items-center justify-center">
+      <p className="text-secondary text-xs font-mono tracking-widest uppercase">Loading 3D model...</p>
+    </div>
+  )}
+);
 
 export default function ModelContent() {
   const { lang } = useLanguage();
@@ -24,6 +34,20 @@ export default function ModelContent() {
           <p className="text-secondary max-w-xl">
             {m.subtitle}
           </p>
+        </div>
+      </section>
+
+      {/* ── 3D Pipeline Viewer ── */}
+      <section className="py-12 px-4 sm:px-6 bg-base">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-accent text-xs uppercase tracking-widest font-mono mb-2">Interactive 3D Model</p>
+          <h2 className="font-heading font-bold text-2xl text-primary mb-2">
+            Explore the pipeline in 3D
+          </h2>
+          <p className="text-secondary text-sm mb-6 max-w-xl">
+            Drag to rotate, scroll to zoom, click a stage in the panel to fly to that part of the system.
+          </p>
+          <WTEPipelineViewer height="620px" accentColor="#c4e538" />
         </div>
       </section>
 
